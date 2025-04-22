@@ -119,3 +119,43 @@ button20.addEventListener("click", function() {
     alert("Well Done!");
     button20.style.display = 'none';
 });
+
+function executeAtMidnight(callback) {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); // Set the time to midnight (start of the next day)
+    
+    const timeUntilMidnight = midnight - now; // Calculate the time difference
+
+    setTimeout(() => {
+        callback();
+        // Schedule the callback to run again at midnight the next day
+        setInterval(callback, 24 * 60 * 60 * 1000); // 24 hours
+    }, timeUntilMidnight);
+}
+
+// Example usage
+executeAtMidnight(() => {
+    console.log("It's midnight!");
+    button1.style.display = 'block';
+    button2.style.display = 'none';
+    button3.style.display = 'none';
+    button4.style.display = 'none';
+    button5.style.display = 'none';
+    button6.style.display = 'none';
+    button7.style.display = 'none';
+    button8.style.display = 'none';
+    button9.style.display = 'none';
+    button10.style.display = 'none';
+    button11.style.display = 'none';
+    button12.style.display = 'none';
+    button13.style.display = 'none';
+    button14.style.display = 'none';
+    button15.style.display = 'none';
+    button16.style.display = 'none';
+    button17.style.display = 'none';
+    button18.style.display = 'none';
+    button19.style.display = 'none';
+    button20.style.display = 'none';
+    // Add any tasks you want to execute here
+});
